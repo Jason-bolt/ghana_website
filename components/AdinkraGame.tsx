@@ -18,7 +18,7 @@ const ADINKRA_DATA = [
   { symbol: "/ad_3.jpg", name: "Duafe" },
   { symbol: "/ad_4.jpg", name: "Adinkrahene" },
   { symbol: "/ad_5.jpg", name: "Adinkrahene" },
-  { symbol: "/ad_6.jpeg", name: "Adinkrahene" },
+  { symbol: "/ad_6.jpg", name: "Adinkrahene" },
 ];
 
 const AdinkraGame: React.FC = () => {
