@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Link from "next/link";
+import { CiInstagram, CiLinkedin, CiYoutube } from "react-icons/ci";
+import { RiTiktokFill } from "react-icons/ri";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +31,40 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header />
         {children}
+        <footer className="flex w-full flex-col items-center justify-center gap-2 border-t-2 border-white/50 py-3">
+          <div className="flex items-center justify-center gap-2">
+            <Link
+              href={"https://www.linkedin.com/in/jason-appiatu/"}
+              target="_blank"
+            >
+              <CiLinkedin className="text-2xl" />
+            </Link>
+            <Link
+              href={"https://www.instagram.com/appiatu_jason"}
+              target="_blank"
+            >
+              <CiInstagram className="text-2xl" />
+            </Link>
+            <Link
+              href={"https://www.tiktok.com/@jasonkwameappiatu"}
+              target="_blank"
+            >
+              <RiTiktokFill className="text-xl" />
+            </Link>
+            <Link
+              href={"https://www.youtube.com/@jasonappiatu"}
+              target="_blank"
+            >
+              <CiYoutube className="text-2xl" />
+            </Link>
+          </div>
+          <p className="text-xs text-white/60">
+            Copyright &copy; {new Date().getFullYear()}. Appiatu Group of
+            Companies
+          </p>
+        </footer>
       </body>
     </html>
   );
