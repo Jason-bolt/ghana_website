@@ -18,9 +18,9 @@ const Presidents = () => {
         <div className="mt-5 flex flex-col flex-wrap items-center justify-start gap-7 md:flex-row md:items-start">
           {PRESIDENTS.firstRepublicPresidents.map((president, index) => (
             <Link
+              key={index}
               href={`/presidents/${president.alt}`}
               className="flex w-full flex-col items-center justify-center hover:cursor-pointer md:w-56"
-              key={index}
             >
               <div className="w-full overflow-hidden md:h-72">
                 <Image
@@ -45,7 +45,8 @@ const Presidents = () => {
         </h1>
         <div className="mt-5 flex flex-col flex-wrap items-center justify-start gap-7 md:flex-row md:items-start">
           {PRESIDENTS.secondRepublicPresidents.map((president, index) => (
-            <div
+            <Link
+              href={`/presidents/${president.alt}`}
               className="flex w-full flex-col items-center justify-center hover:cursor-pointer md:w-56"
               key={index}
             >
@@ -62,7 +63,7 @@ const Presidents = () => {
                 {president.name}
               </h1>
               <p className="text-xs">({president.term})</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -72,7 +73,8 @@ const Presidents = () => {
         </h1>
         <div className="mt-5 flex flex-col flex-wrap items-center justify-start gap-7 md:flex-row md:items-start">
           {PRESIDENTS.thirdRepublicPresidents.map((president, index) => (
-            <div
+            <Link
+              href={`/presidents/${president.alt}`}
               className="flex w-full flex-col items-center justify-center hover:cursor-pointer md:w-56"
               key={index}
             >
@@ -89,7 +91,7 @@ const Presidents = () => {
                 {president.name}
               </h1>
               <p className="text-xs">({president.term})</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -99,7 +101,8 @@ const Presidents = () => {
         </h1>
         <div className="mt-5 flex flex-col flex-wrap items-center justify-start gap-7 md:flex-row md:items-start">
           {PRESIDENTS.fourthRepublicPresidents.map((president, index) => (
-            <div
+            <Link
+              href={`/presidents/${president.alt}`}
               className="flex w-full flex-col items-center justify-center hover:cursor-pointer md:w-56"
               key={index}
             >
@@ -116,7 +119,7 @@ const Presidents = () => {
                 {president.name}
               </h1>
               <p className="text-xs">({president.term})</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

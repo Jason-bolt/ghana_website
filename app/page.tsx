@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import { useLayoutEffect, useRef, useState } from "react";
 import Founders from "@/components/Founders";
 import Anthem from "@/components/Anthem";
 import Pledge from "@/components/Pledge";
@@ -10,8 +11,26 @@ import Presidents from "@/components/Presidents";
 import AdinkraGame from "@/components/AdinkraGame";
 
 export default function Home() {
+  const INTRO_SEEN_KEY = "ghana_intro_seen_v1";
+  const [showIntro, setShowIntro] = useState(false);
+  const hasAnimatedRef = useRef(false);
+
+  useLayoutEffect(() => {
+    const seen = sessionStorage.getItem(INTRO_SEEN_KEY) === "1";
+    if (seen) return;
+
+    const raf = requestAnimationFrame(() => {
+      setShowIntro(true);
+    });
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   useGSAP(
     () => {
+      if (!showIntro || hasAnimatedRef.current) return;
+      hasAnimatedRef.current = true;
+
       const initalLoadTimeline = gsap.timeline();
 
       const RED = "#red";
@@ -60,36 +79,42 @@ export default function Home() {
               autoAlpha: 0,
               duration: 0.5,
             });
+            sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+            setShowIntro(false);
           },
         });
     },
-    { dependencies: [] },
+    { dependencies: [showIntro] },
   );
 
   return (
     <section className="jsutify-center flex min-h-screen w-full flex-col items-center">
-      <div
-        className="fixed inset-0 z-50 h-screen w-full bg-black"
-        id="fake-background"
-      ></div>
-      <div
-        className="fixed inset-1 z-50 mt-48 hidden w-full px-4"
-        id="ghana-flag"
-      >
-        <div className="relative mx-auto flex max-w-2xl flex-col items-center justify-center">
-          <div className="h-30 w-full -skew-3 bg-red-600" id="red"></div>
-          <div className="h-30 w-full -skew-3 bg-yellow-500" id="gold"></div>
-          <div className="h-30 w-full -skew-3 bg-green-700" id="green"></div>
-          <Image
-            src={"/black-star-icon.svg"}
-            height={110}
-            width={110}
-            alt="black_star"
-            id="black"
-            className="absolute z-10 -skew-3"
-          />
-        </div>
-      </div>
+      {showIntro ? (
+        <>
+          <div
+            className="fixed inset-0 z-50 h-screen w-full bg-black"
+            id="fake-background"
+          ></div>
+          <div
+            className="fixed inset-1 z-50 mt-48 hidden w-full px-4"
+            id="ghana-flag"
+          >
+            <div className="relative mx-auto flex max-w-2xl flex-col items-center justify-center">
+              <div className="h-30 w-full -skew-3 bg-red-600" id="red"></div>
+              <div className="h-30 w-full -skew-3 bg-yellow-500" id="gold"></div>
+              <div className="h-30 w-full -skew-3 bg-green-700" id="green"></div>
+              <Image
+                src={"/black-star-icon.svg"}
+                height={110}
+                width={110}
+                alt="black_star"
+                id="black"
+                className="absolute z-10 -skew-3"
+              />
+            </div>
+          </div>
+        </>
+      ) : null}
       <section className="mx-auto min-h-screen w-full p-2">
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-5 p-4 md:p-10">
           <Founders />
