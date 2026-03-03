@@ -12,19 +12,23 @@ import AdinkraGame from "@/components/AdinkraGame";
 
 export default function Home() {
   const INTRO_SEEN_KEY = "ghana_intro_seen_v1";
+  const INTRO_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours
   const [showIntro, setShowIntro] = useState(false);
   const hasAnimatedRef = useRef(false);
 
   useLayoutEffect(() => {
-    const seen = sessionStorage.getItem(INTRO_SEEN_KEY) === "1";
-    if (seen) return;
+    const raw = localStorage.getItem(INTRO_SEEN_KEY);
+    const lastSeen = raw ? Number(raw) : NaN;
+    const isFresh =
+      !Number.isNaN(lastSeen) && Date.now() - lastSeen < INTRO_TTL_MS;
+    if (isFresh) return;
 
     const raf = requestAnimationFrame(() => {
       setShowIntro(true);
     });
 
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [INTRO_TTL_MS]);
 
   useGSAP(
     () => {
@@ -75,11 +79,11 @@ export default function Home() {
           duration: 1,
           ease: "back.out",
           onComplete: () => {
+            localStorage.setItem(INTRO_SEEN_KEY, String(Date.now()));
             gsap.to(`${RED}, ${GOLD}, ${GREEN}, ${BLACK}`, {
               autoAlpha: 0,
               duration: 0.5,
             });
-            sessionStorage.setItem(INTRO_SEEN_KEY, "1");
             setShowIntro(false);
           },
         });

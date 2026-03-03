@@ -24,7 +24,7 @@ const Pledge = () => {
           target="_blank"
           className="flex items-center justify-center gap-2 text-sm text-yellow-500 hover:cursor-pointer hover:text-yellow-400 hover:underline"
         >
-          Listen to the anthem
+          Listen to the pledge
           <CiYoutube className="h-7 w-7" />
         </Link>
       </div>
