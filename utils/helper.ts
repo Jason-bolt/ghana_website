@@ -16,3 +16,19 @@ export const getPresident = (slug: string) => {
     )
   );
 };
+
+const allPresidents = [
+  ...PRESIDENTS.firstRepublicPresidents,
+  ...PRESIDENTS.secondRepublicPresidents,
+  ...PRESIDENTS.thirdRepublicPresidents,
+  ...PRESIDENTS.fourthRepublicPresidents,
+];
+
+export const getPresidentSlugs = (): string[] => {
+  const seen = new Set<string>();
+  return allPresidents.filter((p) => {
+    if (seen.has(p.alt)) return false;
+    seen.add(p.alt);
+    return true;
+  }).map((p) => p.alt);
+};
