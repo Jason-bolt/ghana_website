@@ -3,37 +3,53 @@ import { CiYoutube } from "react-icons/ci";
 
 const Anthem = () => {
   return (
-    <div className="mx-auto max-w-4xl text-start">
+    <div className="mx-auto max-w-4xl w-full text-start">
       <h1
         id="anthem"
         className="my-2 text-2xl font-bold text-yellow-500 md:text-3xl"
       >
         The National Anthem
       </h1>
-      <div className="my-4 flex flex-col items-center justify-start gap-3 bg-gray-900 p-5">
+      <div className="my-4 flex w-full flex-col items-start justify-start gap-3 bg-gray-900 p-5">
         <p className="leading-7">
-          God bless our homeland Ghana, And make our nation great and strong,
-          Bold to defend for ever, The cause of Freedom and of Right. Fill our
-          hearts with true humility Make us cherish fearless honesty, And help
-          us to resist oppressor’s rule With all our will and might for
-          evermore.
+          God bless our homeland Ghana,
+          <br /> And make our nation great and strong,
+          <br />
+          Bold to defend for ever,
+          <br /> The cause of Freedom and of Right.
+          <br /> Fill our hearts with true humility,
+          <br /> Make us cherish fearless honesty,
+          <br /> And help us to resist oppressor’s rule,
+          <br /> With all our will and might for evermore.
         </p>
 
         <p className="leading-7">
-          Hail to thy name, O Ghana, To thee we make our solemn vow: Steadfast
-          to build together A nation strong in Unity; With our gifts of mind and
-          strength of arm, Whether night or day, in mist or storm, In every need
-          what’er the call may be, To serve thee, Ghana, now and evermore.
+          Hail to thy name, O Ghana,
+          <br /> To thee we make our solemn vow:
+          <br /> Steadfast to build together,
+          <br /> A nation strong in Unity;
+          <br /> With our gifts of mind and strength of arm,
+          <br /> Whether night or day, in mist or storm,
+          <br /> In every need what’er the call may be,
+          <br /> To serve thee, Ghana, now and evermore.
         </p>
         <p className="leading-7">
-          Raise high the flag of Ghana And one with Africa advance; Black star
-          of hope and honour, To all who thirst for liberty; Where the banner of
-          Ghana freely flies, May the way of freedom truly lie Arise, arise, O
-          sons of Ghanaland, And under God march on for evermore. Raise high the
-          flag of Ghana And one with Africa advance; Black star of hope and
-          honour, To all who thirst for liberty; Where the banner of Ghana
-          freely flies, May the way of freedom truly lie Arise, arise, O sons of
-          Ghanaland, And under God march on for evermore.
+          Raise high the flag of Ghana
+          <br /> And one with Africa advance;
+          <br /> Black star of hope and honour,
+          <br /> To all who thirst for liberty;
+          <br /> Where the banner of Ghana freely flies,
+          <br /> May the way of freedom truly lie
+          <br /> Arise, arise, O sons of Ghanaland,
+          <br /> And under God march on for evermore.
+          <br /> Raise high the flag of Ghana
+          <br /> And one with Africa advance;
+          <br /> Black star of hope and honour,
+          <br /> To all who thirst for liberty;
+          <br /> Where the banner of Ghana freely flies,
+          <br /> May the way of freedom truly lie
+          <br /> Arise, arise, O sons of Ghanaland,
+          <br /> And under God march on for evermore.
         </p>
         <Link
           href="https://youtu.be/T1d1GSZ9m5w"

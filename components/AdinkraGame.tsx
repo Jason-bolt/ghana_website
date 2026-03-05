@@ -83,10 +83,11 @@ const AdinkraGame: React.FC = () => {
   };
 
   return (
-    <section className="my-10 w-full max-w-4xl text-start">
-      <h1 className="my-5 text-center text-2xl font-bold text-yellow-500">
+    <section className="my-1 w-full max-w-4xl text-start">
+      <h1 className="mt-5 mb-2 text-center text-2xl font-bold text-yellow-500">
         Try this puzzle!
       </h1>
+      <p className="text-center text-sm text-gray-400 my-2">Flip the cards to match the symbols</p>
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center rounded-xl border border-amber-700 bg-zinc-950/80 p-6 shadow-lg">
         <div className="mb-6 flex w-full items-center justify-between">
           <h2 className="text-2xl font-bold text-yellow-500">Adinkra Match</h2>

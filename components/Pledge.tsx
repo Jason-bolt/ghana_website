@@ -3,14 +3,14 @@ import { CiYoutube } from "react-icons/ci";
 
 const Pledge = () => {
   return (
-    <div className="mx-auto max-w-4xl text-start">
+    <div className="mx-auto w-full max-w-4xl text-start">
       <h1
         id="pledge"
         className="my-2 text-2xl font-bold text-yellow-500 md:text-3xl"
       >
         The National Pledge
       </h1>
-      <div className="my-4 flex flex-col items-center justify-start gap-3 bg-gray-900 p-5">
+      <div className="my-4 flex flex-col items-start justify-start gap-3 bg-gray-900 p-5">
         <p className="leading-7">
           I promise on my honour to be faithful and loyal to Ghana my
           Motherland. I pledge myself to the service of Ghana, with all my

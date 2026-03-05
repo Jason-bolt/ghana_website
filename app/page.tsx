@@ -9,6 +9,7 @@ import Anthem from "@/components/Anthem";
 import Pledge from "@/components/Pledge";
 import Presidents from "@/components/Presidents";
 import AdinkraGame from "@/components/AdinkraGame";
+import GhanaTrivia from "@/components/GhanaTrivia";
 
 export default function Home() {
   const INTRO_SEEN_KEY = "ghana_intro_seen_v1";
@@ -126,6 +127,7 @@ export default function Home() {
           <Pledge />
           <Presidents />
           <AdinkraGame />
+          <GhanaTrivia />
         </div>
       </section>
     </section>
